@@ -1,0 +1,43 @@
+# default values are set in kfw_mastr\utils\config.py --> setup_configs()
+# config.yaml needs to be placed in repo root: "\kfw-mastr" (or change it in setup_configs())
+
+REPO_ROOT: "C:\\_prog\\_code\\kfw-mastr"
+NUMBER_THREADS: "8"
+
+INPUT_PATH: "C:\\_prog\\_code\\kfw-mastr-data\\input"
+OUTPUT_PATH: "C:\\_prog\\_code\\kfw-mastr-data\\output"
+
+# db settings for local use, in line with docker-compose.yml
+POSTGRESQL_HOST: "None"
+POSTGRESQL_DB_NAME: "kfw-mastr"
+POSTGRESQL_USER: "postgres"
+POSTGRESQL_PASSWORD: "postgres"
+POSTGRESQL_PORT: "5512"
+
+SOFTWARE_VERSION: "1_0_1" # The Version-Number is defined as followes: [Main_Releases]_[algorithm improvement]_[technical improvement]
+# OUTFILE_POSTFIX: "" # if commented out, defaults to: datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+CONFLICT_ACTION: "update"
+
+YEARS: "2000, 2001"
+BATCH_SIZE: "5000"
+LIMIT_MASTR_UNITS: "1000"
+
+YEAR_SOLAR_ANGLE: "2000"
+SAVE_HOURLY_DATA: "False"
+
+# solar
+CALC_SOLAR: "False"
+SPECIFIC_SOLAR_UNITS: "None"
+CURTAILMENT_SOLAR: "None"
+
+# wind
+CALC_WIND: "True"
+SPECIFIC_WIND_UNITS: "None"
+CURTAILMENT_WIND: "None"
+
+# csv export
+EXPORT_WIND: "False"
+EXPORT_SOLAR: "False"
+EXPORT_BATCH_SIZE: "100000"
+EXPORT_UNITS: "all"
+EXPORT_YEARS: "2000"
