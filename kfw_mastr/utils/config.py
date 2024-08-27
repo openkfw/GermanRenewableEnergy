@@ -113,11 +113,13 @@ def setup_configs(config, config_path):
     """
 
     os.environ["CONFIG_PATH"] = config_path
+    
 
     # mandatory variables
     set_env_var_from_config(config, "REPO_ROOT")
     set_env_var_from_config(config, "INPUT_PATH")
     set_env_var_from_config(config, "OUTPUT_PATH")
+    os.environ["RUN_ID"] = config.get("RUN_ID", "")
     os.environ["NUMBER_THREADS"] = config.get("NUMBER_THREADS", "4")
 
     os.environ["POSTGRESQL_HOST"] = config.get("POSTGRESQL_HOST", "None")
@@ -150,6 +152,10 @@ def setup_configs(config, config_path):
     os.environ["EXPORT_BATCH_SIZE"] = config.get("EXPORT_BATCH_SIZE", "100000")
     os.environ["EXPORT_UNITS"] = config.get("EXPORT_UNITS", "all")
     os.environ["EXPORT_YEARS"] = config.get("EXPORT_YEARS", "None")
+
+    os.environ["AGGREGATE_WIND"] = config.get("AGGREGATE_WIND", "False")
+    os.environ["AGGREGATE_SOLAR"] = config.get("AGGREGATE_SOLAR", "False")
+
 
 def output_configs():
     # Log all relevant environment variables

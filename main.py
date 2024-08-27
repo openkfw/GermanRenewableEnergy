@@ -4,6 +4,7 @@ Control calculations with help of config file
 import os
 from kfw_mastr.calculate_cf_solar import calculate_cf_solar
 from kfw_mastr.calculate_cf_wind import calculate_cf_wind
+from kfw_mastr.aggregator import aggregate_solar, aggregate
 from kfw_mastr.utils.config import setup_logger
 from kfw_mastr.utils.helpers import export_and_copy_files, log_downloaded_mastr_version
 
@@ -34,6 +35,10 @@ def main():
     CALC_WIND : str
         Flag to determine if wind calculations should be performed ('True'/'False').
     CALC_SOLAR : str
+        Flag to determine if solar calculations should be performed ('True'/'False').
+    AGGREGATE_SOLAR : str
+        Flag to determine if solar calculations should be performed ('True'/'False').
+    AGGREGATE_WIND : str
         Flag to determine if solar calculations should be performed ('True'/'False').
 
     Returns
@@ -81,6 +86,12 @@ def main():
         logger.info(f"Exporting solar results to csv. {export_info}")
         export_and_copy_files(years=EXPORT_YEARS, export_batch_size=EXPORT_BATCH_SIZE, tech="solar")
 
+    if os.getenv("AGGREGATE_SOLAR") == "True":
+        aggregate('solar')
+        
+    if os.getenv("AGGREGATE_WIND") == "True":
+        aggregate('wind')
+        
 
 if __name__ == "__main__":
     main()
