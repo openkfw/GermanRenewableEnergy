@@ -12,7 +12,7 @@ and ERA5-Wheater downloaded once during installation.
 
 Follow the steps [here](/docs/setup_and_install.md) to setup the project.
 
-## :running: Installation and setup environment
+## :running: Run the programm
 
 See [here](/docs/run.md) how to execute the software with the correct parameters.
 
