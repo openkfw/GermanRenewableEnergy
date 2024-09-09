@@ -533,11 +533,10 @@ def export_to_csv(table_name, output_file, export_batch_size=None, mastr_ids=os.
     -------
     None
     """
-
-    mastr_ids = [unit.strip() for unit in mastr_ids.split(",")]
-
-    if mastr_ids[0] == 'all':
+    if mastr_ids.strip().lower() == 'all':
         mastr_ids = None
+    else:
+        mastr_ids = [unit.strip() for unit in mastr_ids.split(",")]
 
     with session_scope(engine) as session:
         table = Table(table_name, metadata, autoload_with=engine)
@@ -690,6 +689,7 @@ def export_and_copy_files(years, export_batch_size, tech):
                 year=[year],
             )
 
+    logger.info(f"Save config.yaml and log to: {outpath_dict[tech]}")
     # Copy config.yaml and log file to the tech directory
     shutil.copy(os.path.join(os.environ['CONFIG_PATH']), os.path.join(outpath_dict[tech], f"config_{os.getenv('SOFTWARE_VERSION')}_{os.getenv('OUTFILE_POSTFIX')}.yaml"))
     shutil.copy(

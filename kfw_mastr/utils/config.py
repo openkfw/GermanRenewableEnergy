@@ -161,7 +161,9 @@ def output_configs():
     # Log all relevant environment variables
     logger.info(
         f"Environment variables set: "
+        f"RUN_ID={os.getenv('RUN_ID')}, "
         f"REPO_ROOT={os.getenv('REPO_ROOT')}, "
+        f"YEARS={os.getenv('YEARS')}, "
         f"NUMBER_THREADS={os.getenv('NUMBER_THREADS')}, "
         f"INPUT_PATH={os.getenv('INPUT_PATH')}, "
         f"OUTPUT_PATH={os.getenv('OUTPUT_PATH')}, "
@@ -184,6 +186,9 @@ def output_configs():
         f"EXPORT_BATCH_SIZE={os.getenv('EXPORT_BATCH_SIZE')}, "
         f"EXPORT_UNITS={os.getenv('EXPORT_UNITS')}, "
         f"EXPORT_YEARS={os.getenv('EXPORT_YEARS')}"
+        f"INPUT_PATH={os.getenv('INPUT_PATH')}, "
+        f"OUTPUT_PATH={os.getenv('OUTPUT_PATH')}, "
+        f"CONFIG_PATH={os.getenv('CONFIG_PATH')}"
     )  # don't include postgresql settings in log due to security concerns
 
 

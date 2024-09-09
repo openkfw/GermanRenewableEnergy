@@ -55,6 +55,8 @@ def calculate_cf_solar(
     None
     """
 
+    # Load era5 data for each year
+
     # Load all solar units and their "Stammdaten"
     logger.info(f"Loading {limit_mastr_units} solar MaStR units")
     mastr_unit_list_of_tuples, session = load_calculation_solar_data(
@@ -117,6 +119,8 @@ def calculate_cf_solar(
             mastr_unit_list_of_tuples,
             desc=f"Calculations for mastr solar unit. Committing to db in batches of {batch_size}",
         ):
+
+            unit_time = time.time()
 
             mastrid = unit[0]
             lat = unit[6]

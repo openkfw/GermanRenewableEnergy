@@ -37,7 +37,7 @@ def main():
     CALC_SOLAR : str
         Flag to determine if solar calculations should be performed ('True'/'False').
     AGGREGATE_SOLAR : str
-        Flag to determine if solar calculations should be performed ('True'/'False').
+        Flag to determine if solar calculations should be performed ('True'/'False').H
     AGGREGATE_WIND : str
         Flag to determine if solar calculations should be performed ('True'/'False').
 
@@ -46,6 +46,8 @@ def main():
     None
     """
 
+    incremental = None
+    
     # read environment variables for programme specifications
     if "YEARS" in os.environ:
         YEARS = [year.strip() for year in os.getenv("YEARS").split(",")]
@@ -57,13 +59,12 @@ def main():
         EXPORT_BATCH_SIZE = int(os.getenv('EXPORT_BATCH_SIZE'))
     if "LIMIT_MASTR_UNITS" in os.environ:
         LIMIT_MASTR_UNITS = os.getenv("LIMIT_MASTR_UNITS")
-        if LIMIT_MASTR_UNITS == "None":
+        incremental = (LIMIT_MASTR_UNITS == "incremental")
+        if LIMIT_MASTR_UNITS == "None" or LIMIT_MASTR_UNITS == "incremental":
             LIMIT_MASTR_UNITS = None
         else:
             LIMIT_MASTR_UNITS = int(LIMIT_MASTR_UNITS)
 
-
-    # calculation
     if os.getenv("CALC_WIND") == "True":
         logger.info("Calculating wind electricity generation and  capacity factors")
         calculate_cf_wind(years=YEARS, batch_size=BATCH_SIZE, limit_mastr_units=LIMIT_MASTR_UNITS)
@@ -71,9 +72,11 @@ def main():
     if os.getenv("CALC_SOLAR") == "True":
         logger.info("Calculating solar capacity factors!")
         calculate_cf_solar(
-            years=YEARS, batch_size=BATCH_SIZE, limit_mastr_units=LIMIT_MASTR_UNITS
-        )
-
+            years=YEARS,
+            batch_size=BATCH_SIZE,
+            limit_mastr_units=LIMIT_MASTR_UNITS,
+            incremental=incremental,
+        )    
     # export
     export_info = f"EXPORT_YEARS: {EXPORT_YEARS}; EXPORT_UNITS: {os.getenv('EXPORT_UNITS')}; EXPORT_BATCH_SIZE: {os.getenv('EXPORT_BATCH_SIZE')}"
 
