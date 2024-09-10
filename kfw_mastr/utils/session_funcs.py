@@ -1,5 +1,6 @@
 import os
 from typing import List, Optional
+from sqlalchemy.orm import aliased
 
 import psycopg2
 import psycopg2.extras

@@ -421,7 +421,7 @@ def update_municipalities_centroids():
     -------
     None
     """
-
+    metadata.reflect(engine)
     municipalities_table = metadata.tables["municipalities_geoboundaries"]
 
     with session_scope(engine) as session:
@@ -847,7 +847,7 @@ def calculate_solar_angles():
     end_date = f'{year}-12-31 23:00:00'
     # Generate the hourly time index for the leap year
     time_index = pd.date_range(start=start_date, end=end_date, freq='h')
-
+    
     # get set of era5 coordinates
     file_path = os.path.join(os.environ['INPUT_PATH'], "era5", "hourly", f"2000_2m_temperature.nc")
     coordinates = xr.open_dataset(file_path)

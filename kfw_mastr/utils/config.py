@@ -113,11 +113,13 @@ def setup_configs(config, config_path):
     """
 
     os.environ["CONFIG_PATH"] = config_path
+    
 
     # mandatory variables
     set_env_var_from_config(config, "REPO_ROOT")
     set_env_var_from_config(config, "INPUT_PATH")
     set_env_var_from_config(config, "OUTPUT_PATH")
+    os.environ["RUN_ID"] = config.get("RUN_ID", "")
     os.environ["NUMBER_THREADS"] = config.get("NUMBER_THREADS", "4")
 
     os.environ["POSTGRESQL_HOST"] = config.get("POSTGRESQL_HOST", "None")
@@ -151,11 +153,17 @@ def setup_configs(config, config_path):
     os.environ["EXPORT_UNITS"] = config.get("EXPORT_UNITS", "all")
     os.environ["EXPORT_YEARS"] = config.get("EXPORT_YEARS", "None")
 
+    os.environ["AGGREGATE_WIND"] = config.get("AGGREGATE_WIND", "False")
+    os.environ["AGGREGATE_SOLAR"] = config.get("AGGREGATE_SOLAR", "False")
+
+
 def output_configs():
     # Log all relevant environment variables
     logger.info(
         f"Environment variables set: "
+        f"RUN_ID={os.getenv('RUN_ID')}, "
         f"REPO_ROOT={os.getenv('REPO_ROOT')}, "
+        f"YEARS={os.getenv('YEARS')}, "
         f"NUMBER_THREADS={os.getenv('NUMBER_THREADS')}, "
         f"INPUT_PATH={os.getenv('INPUT_PATH')}, "
         f"OUTPUT_PATH={os.getenv('OUTPUT_PATH')}, "
@@ -178,6 +186,9 @@ def output_configs():
         f"EXPORT_BATCH_SIZE={os.getenv('EXPORT_BATCH_SIZE')}, "
         f"EXPORT_UNITS={os.getenv('EXPORT_UNITS')}, "
         f"EXPORT_YEARS={os.getenv('EXPORT_YEARS')}"
+        f"INPUT_PATH={os.getenv('INPUT_PATH')}, "
+        f"OUTPUT_PATH={os.getenv('OUTPUT_PATH')}, "
+        f"CONFIG_PATH={os.getenv('CONFIG_PATH')}"
     )  # don't include postgresql settings in log due to security concerns
 
 

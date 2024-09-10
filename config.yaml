@@ -1,11 +1,11 @@
 # default values are set in kfw_mastr\utils\config.py --> setup_configs()
 # config.yaml needs to be placed in repo root: "\kfw-mastr" (or change it in setup_configs())
-
-REPO_ROOT: "C:\\_prog\\_code\\kfw-mastr"
+RUN_ID: "2000" # Set to year when calculating solar
+REPO_ROOT: "C:\\Users\\fabian.class\\Documents\\kfw\\GermanRenewableEnergy"
 NUMBER_THREADS: "8"
 
-INPUT_PATH: "C:\\_prog\\_code\\kfw-mastr-data\\input"
-OUTPUT_PATH: "C:\\_prog\\_code\\kfw-mastr-data\\output"
+INPUT_PATH: "C:\\Users\\fabian.class\\Documents\\kfw\\kfw-mastr\\input" #"C:\\_prog\\_code\\kfw-mastr-data\\input"
+OUTPUT_PATH: "C:\\Users\\fabian.class\\Documents\\kfw\\GermanRenewableEnergy\\output" #"C:\\_prog\\_code\\kfw-mastr-data\\output"
 
 # db settings for local use, in line with docker-compose.yml
 POSTGRESQL_HOST: "None"
@@ -18,15 +18,15 @@ SOFTWARE_VERSION: "1_0_1" # The Version-Number is defined as followes: [Main_Rel
 # OUTFILE_POSTFIX: "" # if commented out, defaults to: datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 CONFLICT_ACTION: "update"
 
-YEARS: "2000, 2001"
+YEARS: "2000"
 BATCH_SIZE: "5000"
-LIMIT_MASTR_UNITS: "1000"
+LIMIT_MASTR_UNITS: "incremental" # Amount of units to be calculated. Set to "incremental" to calculate only those which are not calculated in the actual year
 
 YEAR_SOLAR_ANGLE: "2000"
 SAVE_HOURLY_DATA: "False"
 
 # solar
-CALC_SOLAR: "False"
+CALC_SOLAR: "True"
 SPECIFIC_SOLAR_UNITS: "None"
 CURTAILMENT_SOLAR: "None"
 
@@ -41,3 +41,6 @@ EXPORT_SOLAR: "False"
 EXPORT_BATCH_SIZE: "100000"
 EXPORT_UNITS: "all"
 EXPORT_YEARS: "2000"
+
+AGGREGATE_SOLAR: "False"
+AGGREGATE_WIND: "False"
