@@ -1,0 +1,16 @@
+pvlib==0.11.0 # https://pypi.org/project/pvlib/0.11.0/
+open-mastr==0.14.4 # https://pypi.org/project/open-mastr/0.14.4/
+netCDF4==1.7.1.post1 # https://pypi.org/project/netCDF4/1.7.1.post1/
+numba==0.60.0 # https://pypi.org/project/numba/0.60.0/
+sqlalchemy==2.0.31 # https://pypi.org/project/SQLAlchemy/2.0.31/
+geoalchemy2==0.15.1 # https://pypi.org/project/GeoAlchemy2/0.15.1/
+pykdtree==1.3.12 # https://pypi.org/project/pykdtree/1.3.12/
+Cartopy==0.23.0 # https://pypi.org/project/Cartopy/0.23.0/
+geopandas==1.0.0 # https://pypi.org/project/geopandas/1.0.0/
+tqdm==4.66.4  # https://pypi.org/project/tqdm/4.66.4/
+cdsapi==0.7.0 # https://pypi.org/project/cdsapi/0.7.0/
+psycopg2==2.9.9 # https://pypi.org/project/psycopg2/2.9.9/
+matplotlib==3.9.0 # https://pypi.org/project/matplotlib/3.9.0/
+numpy==2.0.0 # https://pypi.org/project/numpy/2.0.0/
+pandas==2.2.2 # https://pypi.org/project/pandas/2.2.2/
+xarray==2024.6.0 # https://pypi.org/project/xarray/2024.6.0/

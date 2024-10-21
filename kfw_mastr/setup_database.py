@@ -230,6 +230,7 @@ def create_tables():
         # Create tables
         Base.metadata.create_all(engine, checkfirst=True)
 
+    metadata.reflect(engine)
     logger.info(f"Created tables: {list(Base.metadata.tables.keys())}")
 
 
@@ -465,8 +466,10 @@ def update_coordinates(tables: list, chunk_size=1000000):
     -------
     None
     """
-
+    # Clear and reflect metadata to ensure previously created columns can be accessed
+    metadata.clear()
     metadata.reflect(engine)
+
     municipalities_table = metadata.tables["municipalities_geoboundaries"]
     era5_coordinates_table = metadata.tables["unique_era5_coordinates"]
 
