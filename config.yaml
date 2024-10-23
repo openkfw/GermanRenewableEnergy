@@ -1,6 +1,6 @@
 # default values are set in kfw_mastr\utils\config.py --> setup_configs()
 # config.yaml needs to be placed in repo root: "\kfw-mastr" (or change it in setup_configs())
-RUN_ID: "2000" # Set to year when calculating solar
+RUN_ID: "" # Set to year when calculating solar
 REPO_ROOT: "C:\\Users\\fabian.class\\Documents\\kfw\\GermanRenewableEnergy"
 NUMBER_THREADS: "8"
 
