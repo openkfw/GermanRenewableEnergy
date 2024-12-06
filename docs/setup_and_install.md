@@ -201,11 +201,13 @@ python kfw_mastr/setup_database.py --config_path "your\favourite\path\config_fil
 If you run into an error, this might be the case because of the following reasons: 
 
 - Your environment is not set up correctly: Delete your environment -- manually or via console -- and repeat the corresponding steps. 
-- The automatic download from Marktstammdatenregister does not work (server is down; connection fails; ...): You can file the *Gesamtdatenexport* by hand into the folder your\repo\folder\GermanRenewableEnergy\output\data\xml_download .
-Tip: In the case of a re-run, it is not necessary to download the MaStR data again. The programm looks if the corresponding ZIP is within the folder containing to actual date within its name, e.g. *Gesamtdatenexport_20241127.zip*. If yes, no additional download is started. <br/>
-IMPORTANT: Out script does not work with MaStR data newer then October 2024. This is because they contain some new data structures (tables) which can't be handled by the used baseline package which is [https://github.com/OpenEnergyPlatform/open-MaStR](https://github.com/OpenEnergyPlatform/open-MaStR) . 
-- You don't have all the raw data needed: For processing reasons, we decided to make a lot of pre-calculations within the setup script. Therefore, all weather data is needed at that step already.
-Since that data is quite large (> 10 GB), it is not part of this github repo. To solve that issue, we will find another storage for that data and will provide the corresponding link. 
+- The automatic downloads do not work (server is down; connection fails; ...): This might be the case for both,
+   - shapefiles from the [*Bundesamt für Kartographie und Geodäse*](https://www.bkg.bund.de/DE/Home/home.html) (BKG), folder your\repo\path\GermanRenewableEnergy\input\ags or
+   - the *Marktstammdatenregister* data from [Bundesnetzagentur](https://www.marktstammdatenregister.de/MaStR) (MaStR).
+In the case of BKG we suggest: try again. In the case of MaStR you can file the *Gesamtdatenexport* by hand into the folder your\repo\path\GermanRenewableEnergy\output\data\xml_download .
+Tip: In the case of a re-run or re-calculation, it is not necessary to download the MaStR data again. The programm looks if the corresponding ZIP is within the folder containing to actual date within its name, e.g. *Gesamtdatenexport_20241127.zip*. If yes, no additional download is started. <br/>
+IMPORTANT: Our script does not work with MaStR data newer then October 2024. This is because they contain some new data structures (tables) which can't be handled by the used baseline package which is [https://github.com/OpenEnergyPlatform/open-MaStR](https://github.com/OpenEnergyPlatform/open-MaStR) . 
+- You don't have all the raw data needed: For processing reasons, we decided to make a lot of pre-calculations within the setup script. Therefore, all weather data is needed at that step already (see this [manual](https://github.com/openkfw/GermanRenewableEnergy/blob/main/docs/download_era5.md); corresponding folder your\repo\path\GermanRenewableEnergy\input\era5). Since that data is quite large (> 10 GB), it is not part of this github repo. To solve that issue, we will find another storage for that data and will provide the corresponding link. 
 
 If everything worked fine, your console output will look similar to that: 
 
