@@ -11,7 +11,7 @@ Download the latest miniconda version [here](https://docs.anaconda.com/miniconda
 Navigate to a folder where you wish to clone the repo (REPO_ROOT). Then use: 
 
 ```
-git clone https://github.com/chrwm/kfw-mastr.git
+git clone https://github.com/openkfw/GermanRenewableEnergy.git
 ```
 
 #### 3. Set python path
